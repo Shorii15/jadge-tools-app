@@ -45,6 +45,7 @@ def upload_file():
             #変換したデータをモデルに渡して予測する
             result = model.predict(data)[0]
             predicted = result.argmax()
+            answer_tool = classes[predicted]
             pred_answer = "これは " + classes[predicted] + " です"
 
             return render_template("index.html",answer=pred_answer)
